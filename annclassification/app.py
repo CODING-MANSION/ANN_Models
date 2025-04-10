@@ -24,7 +24,7 @@ st.title('Customer Churn PRediction')
 
 # User input
 geography = st.selectbox('Geography', onehot_encoder_geo.categories_[0])
-gender = st.selectbox('Gender', label_encoder_gender.classes_)
+gender = st.selectbox('Gender', ['male','female']])
 age = st.slider('Age', 18, 92)
 balance = st.number_input('Balance')
 credit_score = st.number_input('Credit Score')
@@ -37,7 +37,7 @@ is_active_member = st.selectbox('Is Active Member', [0, 1])
 # Prepare the input data
 input_data = pd.DataFrame({
     'CreditScore': [credit_score],
-    'Gender': [label_encoder_gender.transform([gender])[0]],
+    'Gender': [label_encoder_gender.fit_transform([gender])[0]],
     'Age': [age],
     'Tenure': [tenure],
     'Balance': [balance],
